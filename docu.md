@@ -1,8 +1,6 @@
-📦 Documentación de API - FM Cargo
-==================================
+# 📦 Documentación de API - FM Cargo
 
-🔐 Autenticación y Cabeceras
-----------------------------
+## 🔐 Autenticación y Cabeceras
 
 La mayoría de las rutas están protegidas (implícito por el uso de req.user en el BaseController).Todas las peticiones a rutas privadas deben incluir el token JWT en la cabecera.
 
@@ -10,10 +8,9 @@ La mayoría de las rutas están protegidas (implícito por el uso de req.user en
 
 HTTP
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`Content-Type: application/json  Authorization: Bearer` 
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`Content-Type: application/json  Authorization: Bearer`
 
-1\. Autenticación (/api/auth o similar)
----------------------------------------
+## 1\. Autenticación (/api/auth o similar)
 
 _Nota: Asumiendo que authController se monta en una ruta base._
 
@@ -43,17 +40,14 @@ JSON
 
 Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "username": "chofer1",    "password": "securePass",    "role": "driver"  }   `
 
-2\. Usuarios (/api/users)
--------------------------
+## 2\. Usuarios (/api/users)
 
-Controlador: users.controller.ts_Nota: Este controlador sobrescribe create y update para hashear contraseñas. No usa created\_by/updated\_by._
+Controlador: users.controller.ts*Nota: Este controlador sobrescribe create y update para hashear contraseñas. No usa created_by/updated_by.*
 
 ### 🔹 Obtener Usuarios
 
-*   **GET** /api/users (Lista todos)
-    
-*   **GET** /api/users/:id (Obtiene uno)
-    
+- **GET** /api/users (Lista todos)
+- **GET** /api/users/:id (Obtiene uno)
 
 **Respuesta:**
 
@@ -81,10 +75,9 @@ JSON
 
 Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "password": "nuevaPassword", // Opcional. Si se envía, se re-hashea.    "role": "driver"  }   `
 
-3\. Clientes (/api/customers)
------------------------------
+## 3\. Clientes (/api/customers)
 
-Controlador: customers.controller.ts_Relaciones: Trae la Zona y los usuarios creador/actualizador._
+Controlador: customers.controller.ts*Relaciones: Trae la Zona y los usuarios creador/actualizador.*
 
 ### 🔹 Estructura de Respuesta (GET)
 
@@ -100,10 +93,9 @@ JSON
 
 Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "name": "Cliente Nuevo",    "razon_social": "Empresa SRL",    "rut": "1111111-1",    "address": "Av. Libertador 100",    "phone": "099123456",    "email": "cliente@test.com",    "zone_id": "uuid-de-la-zona" // FK requerida  }   `
 
-4\. Envíos (/api/shipments)
----------------------------
+## 4\. Envíos (/api/shipments)
 
-Controlador: shipments.controller.ts_Es la entidad central. Trae relaciones anidadas profundas: Sender, Receiver, Drivers, Detalles y Tipos de Paquete._
+Controlador: shipments.controller.ts*Es la entidad central. Trae relaciones anidadas profundas: Sender, Receiver, Drivers, Detalles y Tipos de Paquete.*
 
 ### 🔹 Estructura de Respuesta (GET)
 
@@ -119,10 +111,9 @@ JSON
 
 Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "tracking_number": "TRK-999",    "sender_id": "uuid-cliente-origen",    "receiver_id": "uuid-cliente-destino",    "pickup_driver": "uuid-usuario-chofer", // Opcional    "delivery_driver": "uuid-usuario-chofer", // Opcional    "payment_method": "cash",    "status": "pending",    "total_amount": 1000,    "observations": "Dejar en portería"    // Nota: Los detalles (items) se crean usualmente en /api/shipment-details     // o mediante transacción si el backend lo soportara en un solo paso.     // Con el BaseController actual, se inserta solo la cabecera aquí.  }   `
 
-5\. Detalles de Envío (/api/shipment-details)
----------------------------------------------
+## 5\. Detalles de Envío (/api/shipment-details)
 
-Controlador: shipment-details.controller.ts_Se usa para agregar ítems a un envío existente._
+Controlador: shipment-details.controller.ts*Se usa para agregar ítems a un envío existente.*
 
 ### 🔹 Crear Detalle (POST)
 
@@ -132,8 +123,7 @@ JSON
 
 Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "shipment_id": "uuid-del-envio",    "package_type_id": "uuid-tipo-paquete",    "quantity": 10,    "subtotal": 1000  }   `
 
-6\. Zonas (/api/zones)
-----------------------
+## 6\. Zonas (/api/zones)
 
 Controlador: zones.controller.ts
 
@@ -151,10 +141,9 @@ JSON
 
 Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "name": "Zona Este"  }   `
 
-7\. Repartos / Viajes (/api/deliveries)
----------------------------------------
+## 7\. Repartos / Viajes (/api/deliveries)
 
-Controlador: deliveries.controller.ts_Representa un viaje de reparto que agrupa varios envíos. Respuesta muy detallada._
+Controlador: deliveries.controller.ts*Representa un viaje de reparto que agrupa varios envíos. Respuesta muy detallada.*
 
 ### 🔹 Estructura de Respuesta (GET)
 
@@ -170,8 +159,7 @@ JSON
 
 Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "name": "Ruta 5 - Tarde",    "driver_id": "uuid-usuario-chofer"  }   `
 
-8\. Tipos de Paquete (/api/package-types)
------------------------------------------
+## 8\. Tipos de Paquete (/api/package-types)
 
 Controlador: package-types.controller.ts
 
@@ -189,8 +177,7 @@ JSON
 
 Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "description": "Pallet Grande",    "unit_price": 1500,    "is_active": true  }   `
 
-9\. Transacciones de Cuenta (/api/account-transactions)
--------------------------------------------------------
+## 9\. Transacciones de Cuenta (/api/account-transactions)
 
 Controlador: account-transactions.controller.ts
 
@@ -208,23 +195,16 @@ JSON
 
 Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "customer_id": "uuid-cliente",    "shipment_id": "uuid-envio", // Opcional    "type": "payment",    "amount": 500,    "balance_after": 1000 // Nota: Idealmente esto se calcula en backend, pero el controller recibe body.  }   `
 
-⚙️ Notas Técnicas Generales
----------------------------
+## ⚙️ Notas Técnicas Generales
 
 1.  **Auditoría Automática:**
-    
-    *   Al hacer POST (Crear), el sistema automáticamente asigna created\_by y updated\_by con el ID del usuario del token.
-        
-    *   Al hacer PUT (Actualizar), el sistema actualiza updated\_by y updated\_at.
-        
+    - Al hacer POST (Crear), el sistema automáticamente asigna created_by y updated_by con el ID del usuario del token.
+    - Al hacer PUT (Actualizar), el sistema actualiza updated_by y updated_at.
+
 2.  **Manejo de Errores:**
-    
-    *   400 Bad Request: Error de validación o base de datos (ej. FK no existe).
-        
-    *   401 Unauthorized: Token faltante o inválido.
-        
-    *   404 Not Found: ID no encontrado (en getById).
-        
-    *   500 Internal Server Error: Fallo inesperado.
-        
-3.  **Fechas:** Todas las fechas (created\_at, pickup\_date) se manejan en formato ISO 8601 (UTC).
+    - 400 Bad Request: Error de validación o base de datos (ej. FK no existe).
+    - 401 Unauthorized: Token faltante o inválido.
+    - 404 Not Found: ID no encontrado (en getById).
+    - 500 Internal Server Error: Fallo inesperado.
+
+3.  **Fechas:** Todas las fechas (created_at, pickup_date) se manejan en formato ISO 8601 (UTC).
