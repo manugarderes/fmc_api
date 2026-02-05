@@ -8,7 +8,7 @@ La mayoría de las rutas están protegidas (implícito por el uso de req.user en
 
 HTTP
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`Content-Type: application/json  Authorization: Bearer`
+`Content-Type: application/json  Authorization: Bearer`
 
 ## 1\. Autenticación (/api/auth o similar)
 
@@ -22,13 +22,13 @@ _Nota: Asumiendo que authController se monta en una ruta base._
 
 JSON
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "username": "admin",    "password": "password123"  }   `
+`   {    "username": "admin",    "password": "password123"  }   `
 
 **Respuesta (200 OK):**
 
 JSON
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "message": "Login exitoso",    "token": "eyJhbGciOiJIUzI1Ni...",    "user": {      "id": "uuid...",      "username": "admin",      "role": "admin",      "created_at": "..."    }  }   `
+`   {    "message": "Login exitoso",    "token": "eyJhbGciOiJIUzI1Ni...",    "user": {      "id": "uuid...",      "username": "admin",      "role": "admin",      "created_at": "..."    }  }   `
 
 ### 🟢 Registro (Público/Admin)
 
@@ -38,7 +38,7 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 
 JSON
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "username": "chofer1",    "password": "securePass",    "role": "driver"  }   `
+`   {    "username": "chofer1",    "password": "securePass",    "role": "driver"  }   `
 
 ## 2\. Usuarios (/api/users)
 
@@ -53,7 +53,7 @@ Controlador: users.controller.ts*Nota: Este controlador sobrescribe create y upd
 
 JSON
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "id": "uuid...",    "username": "juan.perez",    "role": "admin",    "created_at": "timestamp",    "updated_at": "timestamp"  }   `
+`   {    "id": "uuid...",    "username": "juan.perez",    "role": "admin",    "created_at": "timestamp",    "updated_at": "timestamp"  }   `
 
 ### 🔹 Crear Usuario
 
@@ -63,7 +63,7 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 
 JSON
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "username": "nuevo.usuario",    "password": "password123", // Se hasheará automáticamente    "role": "admin"    // "created_by" se ignora aquí  }   `
+`   {    "username": "nuevo.usuario",    "password": "password123", // Se hasheará automáticamente    "role": "admin"    // "created_by" se ignora aquí  }   `
 
 ### 🔹 Actualizar Usuario
 
@@ -73,7 +73,7 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 
 JSON
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "password": "nuevaPassword", // Opcional. Si se envía, se re-hashea.    "role": "driver"  }   `
+`   {    "password": "nuevaPassword", // Opcional. Si se envía, se re-hashea.    "role": "driver"  }   `
 
 ## 3\. Clientes (/api/customers)
 
@@ -83,7 +83,7 @@ Controlador: customers.controller.ts*Relaciones: Trae la Zona y los usuarios cre
 
 JSON
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "id": "uuid...",    "name": "Juan Perez",    "razon_social": "Transportes SA",    "rut": "12345678-9",    "address": "Calle Falsa 123",    "phone": "+5551234",    "email": "contacto@email.com",    "current_balance": 0,    "created_at": "...",    "zone": { "name": "Zona Norte" }, // Relación    "creator": { "username": "admin" },    "updater": { "username": "admin" }  }   `
+`   {    "id": "uuid...",    "name": "Juan Perez",    "razon_social": "Transportes SA",    "rut": "12345678-9",    "address": "Calle Falsa 123",    "phone": "+5551234",    "email": "contacto@email.com",    "current_balance": 0,    "created_at": "...",    "zone": { "name": "Zona Norte" }, // Relación    "creator": { "username": "admin" },    "updater": { "username": "admin" }  }   `
 
 ### 🔹 Crear / Actualizar (POST/PUT)
 
@@ -91,7 +91,7 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 
 JSON
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "name": "Cliente Nuevo",    "razon_social": "Empresa SRL",    "rut": "1111111-1",    "address": "Av. Libertador 100",    "phone": "099123456",    "email": "cliente@test.com",    "zone_id": "uuid-de-la-zona" // FK requerida  }   `
+`   {    "name": "Cliente Nuevo",    "razon_social": "Empresa SRL",    "rut": "1111111-1",    "address": "Av. Libertador 100",    "phone": "099123456",    "email": "cliente@test.com",    "zone_id": "uuid-de-la-zona" // FK requerida  }   `
 
 ## 4\. Envíos (/api/shipments)
 
@@ -101,7 +101,7 @@ Controlador: shipments.controller.ts*Es la entidad central. Trae relaciones anid
 
 JSON
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "id": "uuid...",    "tracking_number": "TRK-001",    "payment_method": "cash", // o 'account'    "status": "pending",    "total_amount": 1500,    "observations": "Cuidado frágil",    "pickup_date": "timestamp",    "delivery_date": null,    // Relaciones    "sender": {         "razon_social": "Cliente A",         "address": "Dir A",         "zone": { "name": "Zona Sur" }     },    "receiver": {         "razon_social": "Cliente B",         "address": "Dir B",         "zone": { "name": "Zona Norte" }     },    "pickup_driver_info": { "username": "chofer1" },    "delivery_driver_info": null,    // Detalles (Items del envío)    "shipment_details": [      {        "quantity": 5,        "subtotal": 500,        "package_types": {          "unit_price": 100,          "description": "Caja Pequeña"        }      }    ]  }   `
+`   {    "id": "uuid...",    "tracking_number": "TRK-001",    "payment_method": "cash", // o 'account'    "status": "pending",    "total_amount": 1500,    "observations": "Cuidado frágil",    "pickup_date": "timestamp",    "delivery_date": null,    // Relaciones    "sender": {         "razon_social": "Cliente A",         "address": "Dir A",         "zone": { "name": "Zona Sur" }     },    "receiver": {         "razon_social": "Cliente B",         "address": "Dir B",         "zone": { "name": "Zona Norte" }     },    "pickup_driver_info": { "username": "chofer1" },    "delivery_driver_info": null,    // Detalles (Items del envío)    "shipment_details": [      {        "quantity": 5,        "subtotal": 500,        "package_types": {          "unit_price": 100,          "description": "Caja Pequeña"        }      }    ]  }   `
 
 ### 🔹 Crear Envío (POST)
 
@@ -109,7 +109,7 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 
 JSON
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "tracking_number": "TRK-999",    "sender_id": "uuid-cliente-origen",    "receiver_id": "uuid-cliente-destino",    "pickup_driver": "uuid-usuario-chofer", // Opcional    "delivery_driver": "uuid-usuario-chofer", // Opcional    "payment_method": "cash",    "status": "pending",    "total_amount": 1000,    "observations": "Dejar en portería"    // Nota: Los detalles (items) se crean usualmente en /api/shipment-details     // o mediante transacción si el backend lo soportara en un solo paso.     // Con el BaseController actual, se inserta solo la cabecera aquí.  }   `
+`   {    "tracking_number": "TRK-999",    "sender_id": "uuid-cliente-origen",    "receiver_id": "uuid-cliente-destino",    "pickup_driver": "uuid-usuario-chofer", // Opcional    "delivery_driver": "uuid-usuario-chofer", // Opcional    "payment_method": "cash",    "status": "pending",    "total_amount": 1000,    "observations": "Dejar en portería"    // Nota: Los detalles (items) se crean usualmente en /api/shipment-details     // o mediante transacción si el backend lo soportara en un solo paso.     // Con el BaseController actual, se inserta solo la cabecera aquí.  }   `
 
 ## 5\. Detalles de Envío (/api/shipment-details)
 
@@ -121,7 +121,7 @@ Controlador: shipment-details.controller.ts*Se usa para agregar ítems a un env�
 
 JSON
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "shipment_id": "uuid-del-envio",    "package_type_id": "uuid-tipo-paquete",    "quantity": 10,    "subtotal": 1000  }   `
+`   {    "shipment_id": "uuid-del-envio",    "package_type_id": "uuid-tipo-paquete",    "quantity": 10,    "subtotal": 1000  }   `
 
 ## 6\. Zonas (/api/zones)
 
@@ -131,7 +131,7 @@ Controlador: zones.controller.ts
 
 JSON
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "id": "uuid...",    "name": "Montevideo Centro",    "created_at": "...",    "creator": { "username": "admin" }  }   `
+`   {    "id": "uuid...",    "name": "Montevideo Centro",    "created_at": "...",    "creator": { "username": "admin" }  }   `
 
 ### 🔹 Crear (POST)
 
@@ -139,7 +139,7 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 
 JSON
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "name": "Zona Este"  }   `
+`   {    "name": "Zona Este"  }   `
 
 ## 7\. Repartos / Viajes (/api/deliveries)
 
@@ -149,7 +149,7 @@ Controlador: deliveries.controller.ts*Representa un viaje de reparto que agrupa 
 
 JSON
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "id": "uuid...",    "name": "Reparto Matutino Lunes",    "created_at": "...",    "driver": { "username": "chofer_juan" },    // Envíos asociados a este reparto    "shipments": [      {        "tracking_number": "TRK-001",        "status": "in_transit",        "sender": { "razon_social": "...", "zone": { "name": "..." } },        "receiver": { "razon_social": "...", "zone": { "name": "..." } },        "shipment_details": [ ... ]      }    ]  }   `
+`   {    "id": "uuid...",    "name": "Reparto Matutino Lunes",    "created_at": "...",    "driver": { "username": "chofer_juan" },    // Envíos asociados a este reparto    "shipments": [      {        "tracking_number": "TRK-001",        "status": "in_transit",        "sender": { "razon_social": "...", "zone": { "name": "..." } },        "receiver": { "razon_social": "...", "zone": { "name": "..." } },        "shipment_details": [ ... ]      }    ]  }   `
 
 ### 🔹 Crear (POST)
 
@@ -157,7 +157,7 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 
 JSON
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "name": "Ruta 5 - Tarde",    "driver_id": "uuid-usuario-chofer"  }   `
+`   {    "name": "Ruta 5 - Tarde",    "driver_id": "uuid-usuario-chofer"  }   `
 
 ## 8\. Tipos de Paquete (/api/package-types)
 
@@ -167,7 +167,7 @@ Controlador: package-types.controller.ts
 
 JSON
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "id": "uuid...",    "description": "Sobre Documentación",    "unit_price": 50.00,    "is_active": true  }   `
+`   {    "id": "uuid...",    "description": "Sobre Documentación",    "unit_price": 50.00,    "is_active": true  }   `
 
 ### 🔹 Crear (POST)
 
@@ -175,7 +175,7 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 
 JSON
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "description": "Pallet Grande",    "unit_price": 1500,    "is_active": true  }   `
+`   {    "description": "Pallet Grande",    "unit_price": 1500,    "is_active": true  }   `
 
 ## 9\. Transacciones de Cuenta (/api/account-transactions)
 
@@ -185,7 +185,7 @@ Controlador: account-transactions.controller.ts
 
 JSON
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "id": "uuid...",    "type": "credit", // o 'debit'    "amount": 500,    "balance_after": 1500,    "created_at": "...",    "shipment": { "tracking_number": "TRK-001" }, // Si está asociada a un envío    "creator": { "username": "admin" }  }   `
+`   {    "id": "uuid...",    "type": "credit", // o 'debit'    "amount": 500,    "balance_after": 1500,    "created_at": "...",    "shipment": { "tracking_number": "TRK-001" }, // Si está asociada a un envío    "creator": { "username": "admin" }  }   `
 
 ### 🔹 Crear (POST)
 
@@ -193,7 +193,7 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 
 JSON
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "customer_id": "uuid-cliente",    "shipment_id": "uuid-envio", // Opcional    "type": "payment",    "amount": 500,    "balance_after": 1000 // Nota: Idealmente esto se calcula en backend, pero el controller recibe body.  }   `
+`   {    "customer_id": "uuid-cliente",    "shipment_id": "uuid-envio", // Opcional    "type": "payment",    "amount": 500,    "balance_after": 1000 // Nota: Idealmente esto se calcula en backend, pero el controller recibe body.  }   `
 
 ## ⚙️ Notas Técnicas Generales
 
