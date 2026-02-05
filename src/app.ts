@@ -50,3 +50,5 @@ if (process.env.NODE_ENV !== "production") {
     console.log(`🚀 FM CARGO Backend corriendo en puerto ${PORT}`);
   });
 }
+
+module.exports = app;
